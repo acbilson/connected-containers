@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+
+  controller:
+    build: ./controller
+    volumes:
+      - ./scripts:/usr/share/scripts
+      - keys:/usr/share/keys
+    env_file:
+      - ./.env
+
+  client:
+    build: ./client
+    volumes:
+      - ./scripts:/usr/share/scripts
+      - keys:/usr/share/keys
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./.env
+
+volumes:
+  keys:
