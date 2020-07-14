@@ -3,6 +3,8 @@ services:
 
   controller:
     build: ./controller
+    image: connected:controller
+    container_name: controller
     volumes:
       - ./scripts:/usr/share/scripts
       - keys:/usr/share/keys
@@ -11,6 +13,8 @@ services:
 
   client:
     build: ./client
+    image: connected:client
+    container_name: client_1
     volumes:
       - ./scripts:/usr/share/scripts
       - keys:/usr/share/keys
